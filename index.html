@@ -29,6 +29,8 @@
               navy: '#020562',
               cyan: '#22AEC9',
               light: '#E6F6F9',
+              gold: '#F59E0B',
+              cream: '#FFFBEB',
             }
           },
           boxShadow: {
@@ -82,6 +84,27 @@
       0%    {opacity: 0; transform: translateY(-10px)}
       100%  {opacity: 1; transform: translateY(0)}
     }
+
+    /* Modal Styles */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(2, 5, 98, 0.6); /* Navy with opacity */
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+        opacity: 0;
+        transition: opacity 0.3s ease-out;
+    }
+    .modal.show {
+        display: flex;
+        opacity: 1;
+    }
   </style>
 </head>
 
@@ -100,8 +123,7 @@
       <nav class="hidden md:flex items-center gap-6">
         <a href="#why" class="text-sm font-medium text-slate-600 hover:text-brand-navy hover:bg-slate-100 px-3 py-2 rounded-full transition-colors">なぜ必要？</a>
         <a href="#what" class="text-sm font-medium text-slate-600 hover:text-brand-navy hover:bg-slate-100 px-3 py-2 rounded-full transition-colors">できること</a>
-        <a href="#how" class="text-sm font-medium text-slate-600 hover:text-brand-navy hover:bg-slate-100 px-3 py-2 rounded-full transition-colors">使い方</a>
-        <!-- ADDED: Co-creation Link -->
+        <a href="#cases" class="text-sm font-medium text-slate-600 hover:text-brand-navy hover:bg-slate-100 px-3 py-2 rounded-full transition-colors">開発事例</a>
         <a href="#cocreate" class="text-sm font-medium text-slate-600 hover:text-brand-navy hover:bg-slate-100 px-3 py-2 rounded-full transition-colors">一緒に作る</a>
         <a href="#faq" class="text-sm font-medium text-slate-600 hover:text-brand-navy hover:bg-slate-100 px-3 py-2 rounded-full transition-colors">よくある質問</a>
         <a href="https://www.smileplusctg.com/" target="_blank" rel="noopener" class="bg-brand-navy hover:bg-slate-800 text-white text-sm font-bold px-5 py-2.5 rounded-full shadow-lg shadow-brand-navy/20 hover:shadow-xl transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
@@ -126,10 +148,9 @@
       <a href="#what" class="mobile-link text-lg font-bold text-brand-navy border-b border-slate-100 pb-3 flex justify-between items-center">
         できること <i data-lucide="chevron-right" class="w-5 h-5 text-slate-300"></i>
       </a>
-      <a href="#how" class="mobile-link text-lg font-bold text-brand-navy border-b border-slate-100 pb-3 flex justify-between items-center">
-        使い方 <i data-lucide="chevron-right" class="w-5 h-5 text-slate-300"></i>
+      <a href="#cases" class="mobile-link text-lg font-bold text-brand-navy border-b border-slate-100 pb-3 flex justify-between items-center">
+        開発事例 <i data-lucide="chevron-right" class="w-5 h-5 text-slate-300"></i>
       </a>
-      <!-- ADDED: Co-creation Link (Mobile) -->
       <a href="#cocreate" class="mobile-link text-lg font-bold text-brand-navy border-b border-slate-100 pb-3 flex justify-between items-center">
         一緒に作る <i data-lucide="chevron-right" class="w-5 h-5 text-slate-300"></i>
       </a>
@@ -144,101 +165,74 @@
 
   <main class="pt-24 md:pt-32 pb-20 overflow-hidden">
     
-    <!-- Hero Section -->
+    <!-- Hero Section (Two Images Layout) -->
     <div class="max-w-6xl mx-auto px-4 md:px-6 mb-20 md:mb-32">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div class="bg-white/80 backdrop-blur border border-white/50 rounded-3xl p-6 md:p-10 shadow-soft relative overflow-hidden fade-in-up flex flex-col items-center text-center">
         
-        <!-- Hero Main Card -->
-        <div class="lg:col-span-7 bg-white/80 backdrop-blur border border-white/50 rounded-3xl p-6 md:p-10 shadow-soft relative overflow-hidden fade-in-up">
-          
-          <!-- Decorative Circle -->
-          <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
+        <!-- Decorative Circle -->
+        <div class="absolute -right-20 -top-20 w-64 h-64 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
 
-          <!-- Main Visual Image (Standalone) -->
-          <div class="relative w-full mb-8 rounded-2xl overflow-hidden shadow-lg group">
-             <img src="2026年年賀状馬ブルー系.jpg" alt="2026 Vision" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105">
+        <!-- Copy & Description (Images Removed) -->
+        <div class="relative z-10 max-w-3xl mx-auto mb-10 pt-4">
+          <div class="inline-flex items-center gap-2 bg-brand-cyan/10 text-brand-navy text-xs md:text-sm font-bold px-3 py-1.5 rounded-full border border-brand-cyan/20 mb-6">
+            <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
+            AIは正解を出す先生じゃない。隣で整理する相棒です
           </div>
 
-          <div class="relative z-10">
-            <div class="inline-flex items-center gap-2 bg-brand-cyan/10 text-brand-navy text-xs md:text-sm font-bold px-3 py-1.5 rounded-full border border-brand-cyan/20 mb-6">
-              <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span>
-              AIは正解を出す先生じゃない。隣で整理する相棒です
-            </div>
+          <h1 class="text-2xl sm:text-3xl md:text-5xl font-black text-brand-navy leading-tight mb-6 tracking-tighter">
+            考えるを、ひとりにしない。<br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-navy to-brand-cyan">AIと一緒に、</span><br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-navy to-brand-cyan">頭の中を整理する。</span>
+          </h1>
 
-            <h1 class="text-2xl sm:text-3xl md:text-5xl font-black text-brand-navy leading-tight mb-6 tracking-tighter relative z-10">
-              考えるを、ひとりにしない。<br>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-navy to-brand-cyan">AIと一緒に、</span><br>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-navy to-brand-cyan">頭の中を整理する。</span>
-            </h1>
+          <p class="text-slate-600 text-sm md:text-lg mb-4 leading-relaxed">
+            専門用語を使わず、想いと強みを整理する<br>
+            あなたのためのAIパートナー。
+          </p>
 
-            <p class="text-slate-600 text-sm md:text-lg mb-6 leading-relaxed border-l-4 border-brand-cyan/30 pl-4">
-              専門用語を使わず、想いと強みを整理する<br>
-              あなたのためのAIパートナー。
-            </p>
-
-            <!-- ADDED: Co-creation Mini Message -->
-            <p class="text-sm text-brand-cyan font-medium mb-6 pl-1 flex items-center gap-2">
-               <i data-lucide="sprout" class="w-4 h-4"></i> もしよければ、現場の“困った”を1分だけ教えてください。<br class="md:hidden">次の改善に反映します😊
-            </p>
-
-            <div class="flex flex-col sm:flex-row gap-4 mb-8">
-              <a href="https://www.smileplusctg.com/" target="_blank" rel="noopener" class="group relative overflow-hidden bg-gradient-to-br from-brand-navy to-brand-cyan text-white text-center font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-brand-cyan/30 hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
-                <span class="relative z-10 flex items-center justify-center gap-2">
-                  まず公式サイトへ（入口） <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
-                </span>
-              </a>
-              <a href="#how" class="flex items-center justify-center gap-2 bg-slate-50 text-brand-navy font-bold py-3.5 px-6 rounded-xl border border-slate-200 hover:bg-brand-cyan/10 hover:border-brand-cyan/30 transition-all">
-                どう使う？を先に見る <i data-lucide="arrow-down" class="w-4 h-4"></i>
-              </a>
-            </div>
-
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 text-xs font-medium flex items-center gap-1">
-                <i data-lucide="frown" class="w-3 h-3 text-slate-400"></i> 経営のモヤモヤ
-              </span>
-              <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 text-xs font-medium flex items-center gap-1">
-                <i data-lucide="edit-3" class="w-3 h-3 text-slate-400"></i> 発信のネタ切れ
-              </span>
-              <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 text-xs font-medium flex items-center gap-1">
-                <i data-lucide="list-checks" class="w-3 h-3 text-slate-400"></i> 優先順位が決まらない
-              </span>
-            </div>
-          </div>
+          <p class="text-sm text-brand-cyan font-medium flex items-center justify-center gap-2">
+             <i data-lucide="sprout" class="w-4 h-4"></i> もしよければ、現場の“困った”を1分だけ教えてください。<br class="md:hidden">次の改善に反映します😊
+          </p>
         </div>
 
-        <!-- Hero Side Cards -->
-        <div class="lg:col-span-5 flex flex-col gap-4 fade-in-up" style="animation-delay: 0.1s;">
-          <div class="bg-white/90 backdrop-blur border border-white/50 rounded-2xl p-5 shadow-card hover:shadow-lg transition-shadow">
-            <div class="flex items-center gap-2 text-brand-navy font-bold mb-2">
-              <div class="p-1.5 bg-brand-light rounded-md text-brand-cyan"><i data-lucide="user-check" class="w-4 h-4"></i></div>
+        <!-- 3. Three Points -->
+        <div class="grid md:grid-cols-3 gap-4 w-full relative z-10 text-left items-stretch">
+          
+          <!-- Card 1: Target -->
+          <div class="bg-white/90 backdrop-blur border border-white/50 rounded-2xl p-5 shadow-card hover:shadow-lg transition-all hover:-translate-y-1 h-full flex flex-col">
+            <div class="flex items-center gap-2 text-brand-navy font-bold mb-3">
+              <div class="p-1.5 bg-brand-light rounded-md text-brand-cyan shrink-0"><i data-lucide="user-check" class="w-4 h-4"></i></div>
               こんな方に向いています
             </div>
-            <p class="text-sm text-slate-500 leading-relaxed">
-              ひとりで抱えがちな経営者・士業・中小企業担当の方へ。まず整理して、次の一歩を軽くします😊
+            <p class="text-sm text-slate-500 leading-relaxed flex-grow">
+              ひとりで抱えがちな方々へ。まず整理して、次の一歩を軽くします😊
             </p>
           </div>
 
-          <div class="bg-white/90 backdrop-blur border border-white/50 rounded-2xl p-5 shadow-card hover:shadow-lg transition-shadow">
-            <div class="flex items-center gap-2 text-brand-navy font-bold mb-2">
-              <div class="p-1.5 bg-brand-light rounded-md text-brand-cyan"><i data-lucide="map" class="w-4 h-4"></i></div>
+          <!-- Card 2: Value -->
+          <div class="bg-white/90 backdrop-blur border border-white/50 rounded-2xl p-5 shadow-card hover:shadow-lg transition-all hover:-translate-y-1 h-full flex flex-col">
+            <div class="flex items-center gap-2 text-brand-navy font-bold mb-3">
+              <div class="p-1.5 bg-brand-light rounded-md text-brand-cyan shrink-0"><i data-lucide="map" class="w-4 h-4"></i></div>
               このLPで分かること
             </div>
-            <p class="text-sm text-slate-500 leading-relaxed">
+            <p class="text-sm text-slate-500 leading-relaxed flex-grow">
               なぜ必要か／何ができるか／最短3ステップの使い方／よくある不安の解消。
             </p>
           </div>
 
-          <div class="bg-brand-navy/5 border border-brand-navy/10 rounded-2xl p-5 flex items-start gap-4">
-            <i data-lucide="heart-handshake" class="w-8 h-8 text-brand-navy shrink-0 mt-1"></i>
-            <div>
-              <div class="text-brand-navy font-bold text-sm mb-1">小さな約束</div>
-              <p class="text-xs text-slate-600 leading-relaxed">
-                難しいIT用語で置いていきません。<br>
-                目指すのは、安心して使える相棒感です🤝
-              </p>
+          <!-- Card 3: Promise -->
+          <div class="bg-brand-navy/5 border border-brand-navy/10 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 h-full flex flex-col">
+            <div class="flex items-center gap-2 text-brand-navy font-bold mb-3">
+               <div class="p-1.5 bg-white rounded-md text-brand-navy shrink-0"><i data-lucide="heart-handshake" class="w-4 h-4"></i></div>
+               小さな約束
             </div>
+            <p class="text-xs text-slate-600 leading-relaxed flex-grow">
+              難しいIT用語で置いていきません。目指すのは、安心して使える相棒感です🤝
+            </p>
           </div>
+
         </div>
+
       </div>
     </div>
 
@@ -337,127 +331,24 @@
       </div>
     </section>
 
-    <!-- HOW Section -->
-    <section id="how" class="py-16 md:py-24 relative overflow-hidden">
-      <!-- Background Decor -->
-      <div class="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white -z-10"></div>
-      
+    <!-- CO-CREATE START (Moved Here & Background Adjusted) -->
+    <section id="cocreate" class="py-16 md:py-24 relative fade-in-up bg-gradient-to-b from-white to-slate-50/50">
       <div class="max-w-4xl mx-auto px-4 md:px-6">
-        <div class="text-center mb-12 fade-in-up">
-          <span class="text-brand-cyan font-black tracking-widest text-xs uppercase bg-brand-cyan/10 px-3 py-1 rounded-full">HOW</span>
-          <h2 class="text-2xl md:text-3xl font-bold text-brand-navy mt-4 mb-4">使い方は最短3ステップ</h2>
-          <p class="text-slate-500 text-sm">
-            まずは公式サイトで、世界観と実例を見てください。そこが入口です😊
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6 relative">
-          <!-- Connecting Line (Desktop) -->
-          <div class="hidden md:block absolute top-8 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent -z-10"></div>
-
-          <!-- Step 1 -->
-          <div class="bg-white/80 backdrop-blur p-6 rounded-2xl border border-white shadow-soft fade-in-up text-center relative group hover:-translate-y-1 transition-transform duration-300">
-            <div class="w-10 h-10 mx-auto bg-brand-navy text-white text-lg font-bold rounded-xl flex items-center justify-center shadow-lg shadow-brand-navy/20 mb-4 relative z-10 group-hover:bg-brand-cyan transition-colors">1</div>
-            <h3 class="font-bold text-brand-navy mb-2">公式サイトで<br>全体像をつかむ</h3>
-            <p class="text-xs text-slate-500">どんな支援をしているか、どんな雰囲気か。まず安心感を得るところから。</p>
-          </div>
-
-          <!-- Step 2 -->
-          <div class="bg-white/80 backdrop-blur p-6 rounded-2xl border border-white shadow-soft fade-in-up text-center relative group hover:-translate-y-1 transition-transform duration-300" style="animation-delay: 0.1s;">
-            <div class="w-10 h-10 mx-auto bg-brand-navy text-white text-lg font-bold rounded-xl flex items-center justify-center shadow-lg shadow-brand-navy/20 mb-4 relative z-10 group-hover:bg-brand-cyan transition-colors">2</div>
-            <h3 class="font-bold text-brand-navy mb-2">気になる<br>テーマを選ぶ</h3>
-            <p class="text-xs text-slate-500">発信、提案、整理、AI活用。いま困っている一点にしぼるのがコツです。</p>
-          </div>
-
-          <!-- Step 3 -->
-          <div class="bg-white/80 backdrop-blur p-6 rounded-2xl border border-white shadow-soft fade-in-up text-center relative group hover:-translate-y-1 transition-transform duration-300" style="animation-delay: 0.2s;">
-            <div class="w-10 h-10 mx-auto bg-brand-navy text-white text-lg font-bold rounded-xl flex items-center justify-center shadow-lg shadow-brand-navy/20 mb-4 relative z-10 group-hover:bg-brand-cyan transition-colors">3</div>
-            <h3 class="font-bold text-brand-navy mb-2">整理の“型”を使って<br>前に進む</h3>
-            <p class="text-xs text-slate-500">質問に答えるだけで、言葉が整い、次の行動が見えるようになります。</p>
-          </div>
-        </div>
-
-        <!-- CTA Band -->
-        <div class="mt-12 bg-gradient-to-r from-brand-navy to-slate-900 rounded-2xl p-6 md:p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 fade-in-up">
-          <div class="text-center md:text-left">
-            <div class="font-bold text-lg md:text-xl mb-1 flex items-center justify-center md:justify-start gap-2">
-              入口はここ。まず公式サイトへ <i data-lucide="door-open" class="w-5 h-5 text-brand-cyan"></i>
-            </div>
-            <div class="text-sm text-slate-300">世界観と実例を見てから、必要な一歩だけ選べます</div>
-          </div>
-          <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
-            <a href="https://www.smileplusctg.com/" target="_blank" rel="noopener" class="bg-brand-cyan hover:bg-cyan-400 text-white font-bold py-3 px-6 rounded-xl transition-colors text-center shadow-lg shadow-brand-cyan/20">
-              Smile Plus Consultingへ ↗
-            </a>
-            <a href="#faq" class="bg-white/10 hover:bg-white/20 text-white font-medium py-3 px-6 rounded-xl transition-colors text-center border border-white/20">
-              不安がある方はこちら
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- FEELING Section -->
-    <section class="py-16 bg-brand-light/30">
-      <div class="max-w-4xl mx-auto px-4 md:px-6">
-        <div class="text-center mb-12 fade-in-up">
-          <span class="text-brand-cyan font-black tracking-widest text-xs uppercase bg-white px-3 py-1 rounded-full shadow-sm">FEELING</span>
-          <h2 class="text-2xl font-bold text-brand-navy mt-4">こんな“気持ちの変化”を目指します</h2>
-          <p class="text-slate-500 text-sm mt-2">機能の前に、安心感。使ったあとに「よし、進める」が残る状態へ。</p>
-        </div>
-
-        <div class="grid gap-4">
-          <!-- Voice 1 -->
-          <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4 items-start fade-in-up">
-            <div class="text-3xl">😊</div>
-            <div>
-              <p class="text-brand-navy font-medium text-base mb-2">「AIって難しいと思ってたけど、相談相手みたいに使えると分かってホッとした。」</p>
-              <p class="text-xs text-slate-400">よくある声（イメージ）</p>
-            </div>
-          </div>
-          <!-- Voice 2 -->
-          <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4 items-start fade-in-up" style="animation-delay: 0.1s;">
-            <div class="text-3xl">💡</div>
-            <div>
-              <p class="text-brand-navy font-medium text-base mb-2">「自分の強みを説明できなくて止まってたのに、言葉が整って前に進めた。」</p>
-              <p class="text-xs text-slate-400">よくある声（イメージ）</p>
-            </div>
-          </div>
-          <!-- Voice 3 -->
-          <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm flex gap-4 items-start fade-in-up" style="animation-delay: 0.2s;">
-            <div class="text-3xl">🚀</div>
-            <div>
-              <p class="text-brand-navy font-medium text-base mb-2">「資料やSNSの元ネタができると、発信が急にラクになった。」</p>
-              <p class="text-xs text-slate-400">よくある声（イメージ）</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CO-CREATE START -->
-    <section id="cocreate" class="py-16 md:py-24 relative fade-in-up">
-      <div class="max-w-6xl mx-auto px-4 md:px-6">
         
         <div class="text-center mb-10">
           <span class="text-brand-cyan font-black tracking-widest text-xs uppercase bg-brand-cyan/10 px-3 py-1 rounded-full">CO-CREATE</span>
           <h2 class="text-2xl md:text-3xl font-bold text-brand-navy mt-4 mb-4">みんなの「困った」で、<br class="md:hidden">アプリは育つ🌱</h2>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6">
+        <div class="max-w-2xl mx-auto space-y-6">
           
-          <!-- Left Card: Context/List -->
-          <div class="bg-white p-6 md:p-8 rounded-2xl shadow-card border border-slate-100">
-             <div class="inline-flex items-center gap-2 text-brand-navy font-bold mb-4">
+          <!-- Context/List (Simplified) -->
+          <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 text-center">
+             <div class="inline-flex items-center gap-2 text-brand-navy font-bold mb-3">
                 <div class="p-1.5 bg-brand-light rounded-md text-brand-cyan"><i data-lucide="message-circle-heart" class="w-5 h-5"></i></div>
                 こんな内容でOKです
              </div>
-             <p class="text-sm text-slate-600 leading-relaxed mb-6">
-               今つくっているのは「迷う人が、前に進める」ための小さな整理アプリです。<br>
-               もしよければ、あなたの現場の“困った”を1分だけ教えてください。その一言が、次の改善アイディアになります。
-             </p>
-             <ul class="space-y-3 text-sm text-slate-600 bg-brand-light/30 p-5 rounded-xl">
+             <ul class="space-y-2 text-sm text-slate-600 bg-brand-light/30 p-4 rounded-xl text-left inline-block w-full">
                 <li class="flex items-start gap-2">
                   <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-cyan mt-0.5 shrink-0"></i>
                   <span>どこで迷ったか / 誰向けか</span>
@@ -473,28 +364,67 @@
              </ul>
           </div>
 
-          <!-- Right Card: Action -->
-          <div class="bg-brand-navy text-white p-6 md:p-8 rounded-2xl shadow-lg shadow-brand-navy/20 flex flex-col justify-center relative overflow-hidden">
+          <!-- Input Form & Action (Single Column) -->
+          <div class="bg-brand-navy text-white p-6 md:p-8 rounded-2xl shadow-lg shadow-brand-navy/20 relative overflow-hidden">
              <!-- Background Decor -->
-             <div class="absolute right-0 top-0 w-48 h-48 bg-brand-cyan/20 rounded-full blur-3xl -mr-10 -mt-10"></div>
+             <div class="absolute right-0 top-0 w-48 h-48 bg-brand-cyan/20 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
              
-             <h3 class="text-xl font-bold mb-6 relative z-10 text-center">一緒にアプリ開発しませんか？</h3>
+             <!-- MODIFIED: Updated Title -->
+             <h3 class="text-xl font-bold mb-6 relative z-10 text-center flex items-center justify-center gap-2">
+               <i data-lucide="sprout" class="w-5 h-5"></i> 現場の「困った」を教えてください
+             </h3>
              
-             <div class="flex flex-col gap-4 relative z-10">
-                <!-- Button 1: Hint (Contact Form) -->
-                <!-- ※ hrefは仮です。必要に応じて変更してください -->
-                <a href="https://www.smileplusctg.com/contact" target="_blank" rel="noopener" class="bg-brand-cyan hover:bg-cyan-400 text-white font-bold py-4 px-6 rounded-xl text-center shadow-lg shadow-brand-cyan/20 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2">
-                  <i data-lucide="send" class="w-4 h-4"></i> ヒントを1分で送る
-                </a>
+             <div class="relative z-10 space-y-4">
                 
-                <!-- Button 2: Official Site -->
-                <a href="https://www.smileplusctg.com/" target="_blank" rel="noopener" class="bg-white/10 hover:bg-white/20 text-white font-medium py-3 px-6 rounded-xl text-center border border-white/20 transition-colors flex items-center justify-center gap-2">
-                  まず公式サイトで事例を見る <i data-lucide="external-link" class="w-4 h-4"></i>
-                </a>
+                <!-- Category Select (New) -->
+                <div>
+                  <label for="hint-category" class="block text-xs font-bold text-brand-light mb-1.5 ml-1">どんな場面ですか？</label>
+                  <select id="hint-category" class="w-full bg-white/10 border border-white/20 text-white rounded-xl p-3 text-sm focus:ring-2 focus:ring-brand-cyan outline-none appearance-none cursor-pointer hover:bg-white/20 transition-colors">
+                    <option value="" class="text-slate-800">選択してください（任意）</option>
+                    <option value="操作がわかりにくい" class="text-slate-800">操作・使い方がわかりにくい</option>
+                    <option value="こんな機能がほしい" class="text-slate-800">こんな機能があったら嬉しい</option>
+                    <option value="入力がめんどう" class="text-slate-800">入力作業がめんどう・大変</option>
+                    <option value="その他" class="text-slate-800">その他・感想など</option>
+                  </select>
+                </div>
+
+                <!-- Text Area for Hint -->
+                <div>
+                  <label for="hint-input" class="block text-xs font-bold text-brand-light mb-1.5 ml-1">内容</label>
+                  <textarea id="hint-input" rows="4" class="w-full bg-white/90 text-slate-800 border-0 rounded-xl p-4 text-sm focus:ring-2 focus:ring-brand-cyan outline-none resize-none placeholder-slate-400" placeholder="例：「毎日の日報入力がスマホからだとやりづらくて面倒です...」「お客様の名前をパッと思い出せるような検索機能が欲しい！」"></textarea>
+                </div>
+
+                <!-- Send Button (Opens Modal) -->
+                <button onclick="openSendModal()" class="w-full bg-brand-cyan hover:bg-cyan-400 text-white font-bold py-4 px-6 rounded-xl text-center shadow-lg shadow-brand-cyan/20 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2 mt-4">
+                  <i data-lucide="send" class="w-4 h-4"></i> 内容を確認して送信する
+                </button>
              </div>
-             <p class="text-xs text-center text-slate-300 mt-4 relative z-10">
-               押し売りは一切ありません。お気軽にどうぞ。
+             <p class="text-[10px] text-center text-slate-300 mt-4 relative z-10 opacity-70">
+               ※送信ボタンを押すと、メールアプリ起動などの選択画面が開きます。
              </p>
+          </div>
+
+          <!-- NEW: Compass Banner -->
+          <div class="mt-8 text-center relative z-10 fade-in-up" style="animation-delay: 0.2s;">
+            <div class="bg-gradient-to-r from-brand-gold to-orange-400 rounded-2xl p-1 shadow-lg transform hover:-translate-y-1 transition-transform">
+              <div class="bg-brand-cream rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-left">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="bg-orange-100 text-orange-600 text-[10px] font-bold px-2 py-1 rounded-full border border-orange-200">迷っている方へ</span>
+                  </div>
+                  <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-2">
+                    「次の一手」コンパス
+                  </h3>
+                  <p class="text-sm text-slate-600">
+                    思考の整理、どこから始めればいい？<br class="hidden md:block">
+                    今の状態を選ぶだけで、あなたに最適な「はじめの一歩」をご案内します。
+                  </p>
+                </div>
+                <a href="https://spc-jp.github.io/apl-kaihatsu/" target="_blank" rel="noopener" class="bg-slate-800 hover:bg-slate-900 text-white font-bold py-4 px-8 rounded-xl shadow-lg flex items-center gap-2 whitespace-nowrap transition-colors shrink-0">
+                  <i data-lucide="compass" class="w-5 h-5"></i> コンパスを試す
+                </a>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -503,66 +433,188 @@
     </section>
     <!-- CO-CREATE END -->
 
-    <!-- FAQ Section -->
+    <!-- CASES Section (Replaced HOW) -->
+    <section id="cases" class="py-16 md:py-24 relative overflow-hidden">
+      <!-- Background Decor -->
+      <div class="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white -z-10"></div>
+      
+      <div class="max-w-6xl mx-auto px-4 md:px-6">
+        <div class="text-center mb-12 fade-in-up">
+          <span class="text-brand-cyan font-black tracking-widest text-xs uppercase bg-brand-cyan/10 px-3 py-1 rounded-full">CASES</span>
+          <h2 class="text-2xl md:text-3xl font-bold text-brand-navy mt-4 mb-4">開発中のアプリ事例（イメージ）</h2>
+          <p class="text-slate-500 text-sm">
+            皆さんの「困った」から、こんなツールが生まれようとしています。<br>
+            ※画面は開発中のイメージです。
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 relative">
+          <!-- Connecting Line (Desktop) -->
+          <div class="hidden md:block absolute top-8 left-1/6 right-1/6 h-0.5 bg-gradient-to-r from-transparent via-brand-cyan/30 to-transparent -z-10"></div>
+
+          <!-- Case 1: Mirai365 (Updated) -->
+          <div class="bg-white/80 backdrop-blur p-6 rounded-2xl border border-white shadow-soft fade-in-up text-center relative group hover:-translate-y-1 transition-transform duration-300 flex flex-col">
+            <div class="w-12 h-12 mx-auto bg-orange-100 text-orange-500 rounded-xl flex items-center justify-center mb-4 relative z-10">
+              <i data-lucide="sun" class="w-6 h-6"></i>
+            </div>
+            <!-- Title aligned to 2 lines like others -->
+            <h3 class="font-bold text-brand-navy text-lg mb-1">習慣化アプリ<br>Mirai365</h3>
+            <p class="text-xs font-bold text-brand-cyan mb-3">未来の自分を予約する思考法ツール</p>
+            
+            <p class="text-xs text-slate-500 mb-3 text-left leading-relaxed">
+              “できたこと”だけを増やしていくことにフォーカスしたブラウザアプリです。
+            </p>
+            
+            <ul class="text-[10px] text-slate-500 text-left list-disc pl-4 mb-6 space-y-1 flex-grow">
+              <li>未来の自分を予約する</li>
+              <li>「できたこと」にだけ ◯● をつける</li>
+              <li>脳科学ベースの優しい習慣化ツール</li>
+            </ul>
+
+            <a href="https://spc-miraidesign365-lptr.netlify.app/" target="_blank" rel="noopener" class="block w-full bg-brand-cyan hover:bg-cyan-400 text-white text-xs font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+              デモ画面を見る <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
+          </div>
+
+          <!-- Case 2: Bengoshi AI Tool -->
+          <div class="bg-white/80 backdrop-blur p-6 rounded-2xl border border-white shadow-soft fade-in-up text-center relative group hover:-translate-y-1 transition-transform duration-300 flex flex-col" style="animation-delay: 0.1s;">
+            <div class="w-12 h-12 mx-auto bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-4 relative z-10">
+              <i data-lucide="scale" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-bold text-brand-navy text-lg mb-1">弁護士のための<br>AIひな形ツール</h3>
+            <p class="text-xs font-bold text-brand-cyan mb-3">実務特化型プロンプト集＆支援</p>
+            
+            <p class="text-xs text-slate-500 mb-3 text-left leading-relaxed">
+              迷わず・すぐ使える＝プロンプト作成の時間を劇的に短縮します。
+            </p>
+            
+            <ul class="text-[10px] text-slate-500 text-left list-disc pl-4 mb-6 space-y-1 flex-grow">
+              <li>打ち合わせ記録・整理の効率化</li>
+              <li>書面案の構成・原稿作成の悩み解消</li>
+              <li>依頼者向け説明文の品質向上</li>
+              <li>AIへの指示出しをサポート</li>
+            </ul>
+
+            <a href="https://spc-jp.github.io/bengoshi-1.1/" target="_blank" rel="noopener" class="block w-full bg-brand-cyan hover:bg-cyan-400 text-white text-xs font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+              デモ画面を見る <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
+          </div>
+
+          <!-- Case 3: Web Hearing Sheet -->
+          <div class="bg-white/80 backdrop-blur p-6 rounded-2xl border border-white shadow-soft fade-in-up text-center relative group hover:-translate-y-1 transition-transform duration-300 flex flex-col" style="animation-delay: 0.2s;">
+            <div class="w-12 h-12 mx-auto bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-4 relative z-10">
+              <i data-lucide="layout" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-bold text-brand-navy text-lg mb-1">Web制作<br>ヒアリングシート</h3>
+            <p class="text-xs font-bold text-brand-cyan mb-3">要件定義をスムーズにするアプリ</p>
+            
+            <p class="text-xs text-slate-500 mb-3 text-left leading-relaxed">
+              質問に答えるだけで、Web制作のヒアリング情報を要件定義書へ自動整理します。
+            </p>
+            
+            <ul class="text-[10px] text-slate-500 text-left list-disc pl-4 mb-6 space-y-1 flex-grow">
+              <li>面倒な聞き取り・まとめを効率化</li>
+              <li>クライアントと対話形式で入力</li>
+              <li>LP・複数ページ構成に自動対応</li>
+              <li>要件定義書テキストを自動生成</li>
+            </ul>
+
+            <a href="https://spc-jp.github.io/web-h2p/" target="_blank" rel="noopener" class="block w-full bg-brand-cyan hover:bg-cyan-400 text-white text-xs font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+              デモ画面を見る <i data-lucide="external-link" class="w-3 h-3"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VISION Section (Replaced FEELING) -->
+    <section class="py-16 bg-brand-light/30">
+      <div class="max-w-4xl mx-auto px-4 md:px-6">
+        <div class="text-center mb-10 fade-in-up">
+          <span class="text-brand-cyan font-black tracking-widest text-xs uppercase bg-white px-3 py-1 rounded-full shadow-sm">VISION</span>
+          <h2 class="text-2xl font-bold text-brand-navy mt-4">未完成だからこそ、<br class="md:hidden">あなたの声が必要です</h2>
+        </div>
+
+        <div class="bg-white p-8 md:p-12 rounded-3xl shadow-sm border border-slate-100 fade-in-up relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-32 h-32 bg-brand-light rounded-full blur-3xl -ml-10 -mt-10"></div>
+          <div class="relative z-10 text-center md:text-left">
+            <p class="text-lg font-bold text-brand-navy mb-4 text-center">
+              「便利な道具」ではなく、「信頼できる相棒」を作りたい。
+            </p>
+            <p class="text-slate-600 leading-relaxed mb-6 text-sm md:text-base text-center max-w-2xl mx-auto">
+              世の中には高機能なAIツールがたくさんありますが、本当に現場で「使える」ものはまだ少ないと感じています。<br><br>
+              私たちは、完成品を一方的に提供するのではなく、実際に現場で働く皆さんの「困った」や「面倒」といった生の声から、本当に必要な機能を育てていきたいと考えています。<br><br>
+              あなたの「ここが使いにくい」「こんなことができたらいいのに」という一言が、このアプリを育てる一番の栄養です。<br>
+              ぜひ、開発チームの一員として、力を貸してください。
+            </p>
+            <div class="text-center mt-8">
+               <a href="#cocreate" class="inline-flex items-center gap-2 text-brand-cyan font-bold hover:underline">
+                 上に戻ってヒントを送る <i data-lucide="arrow-up" class="w-4 h-4"></i>
+               </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section (Updated for Co-creation) -->
     <section id="faq" class="py-16 md:py-24">
       <div class="max-w-3xl mx-auto px-4 md:px-6">
         <div class="text-center mb-12 fade-in-up">
           <span class="text-brand-cyan font-black tracking-widest text-xs uppercase bg-brand-cyan/10 px-3 py-1 rounded-full">FAQ</span>
           <h2 class="text-2xl md:text-3xl font-bold text-brand-navy mt-4 mb-4">よくある質問</h2>
-          <p class="text-slate-500 text-sm">AIが苦手でも大丈夫。分かりやすさ優先で設計しています。</p>
+          <p class="text-slate-500 text-sm">開発への参加について、気になることをまとめました。</p>
         </div>
 
         <div class="space-y-4 fade-in-up">
           <details class="group bg-white rounded-2xl shadow-sm border border-slate-100 open:ring-2 open:ring-brand-cyan/20 transition-all duration-300">
             <summary class="flex items-center justify-between p-5 md:p-6 cursor-pointer font-bold text-brand-navy">
-              Q. AIが苦手です。ついていけますか？
+              Q. 技術的な知識は必要ですか？
               <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
             <div class="px-5 md:px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-4">
-              大丈夫です。難しい操作や専門用語を減らし、話しかける感覚で進められる形を重視しています。
+              全く必要ありません！プログラムの知識よりも、「現場で何に困っているか」「どんな時に不便を感じるか」という感覚的なご意見が一番重要です。
             </div>
           </details>
 
           <details class="group bg-white rounded-2xl shadow-sm border border-slate-100 open:ring-2 open:ring-brand-cyan/20 transition-all duration-300">
             <summary class="flex items-center justify-between p-5 md:p-6 cursor-pointer font-bold text-brand-navy">
-              Q. 何から相談したらいいか分かりません
+              Q. 批判的な意見でも送っていいですか？
               <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
             <div class="px-5 md:px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-4">
-              それが一番多いです😊 まずは「今いちばん困っている一点」だけでOK。整理してから広げていきます。
+              もちろんです。「ここが使いにくい」「分かりにくい」といったネガティブなご意見こそ、改善の最大のヒントになります。遠慮なく教えてください。
             </div>
           </details>
 
           <details class="group bg-white rounded-2xl shadow-sm border border-slate-100 open:ring-2 open:ring-brand-cyan/20 transition-all duration-300">
             <summary class="flex items-center justify-between p-5 md:p-6 cursor-pointer font-bold text-brand-navy">
-              Q. AIは答えを出してくれるんですか？
+              Q. 開発に参加するのにお金はかかりますか？
               <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
             <div class="px-5 md:px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-4">
-              答えを押しつけるより、考えを整理して選べる状態にするのが得意です。決めるのはあなた、AIは相棒役です。
+              一切かかりません。むしろ、貴重なお時間を割いてご意見をいただくことに感謝しております。
             </div>
           </details>
 
           <details class="group bg-white rounded-2xl shadow-sm border border-slate-100 open:ring-2 open:ring-brand-cyan/20 transition-all duration-300">
             <summary class="flex items-center justify-between p-5 md:p-6 cursor-pointer font-bold text-brand-navy">
-              Q. 結局どこを見ればいいですか？
+              Q. 完成したアプリは使えますか？
               <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform"></i>
             </summary>
             <div class="px-5 md:px-6 pb-6 text-sm text-slate-600 leading-relaxed border-t border-slate-50 pt-4">
-              入口は公式サイトです。世界観と実例を見てから、必要なテーマだけ選ぶのがいちばん早いです。
+              はい、ヒントをくださった方には、完成版やβ版（試用版）のご案内を優先的にお送りさせていただく予定です。
             </div>
           </details>
         </div>
 
         <div class="mt-12 bg-white rounded-2xl p-8 text-center border-2 border-dashed border-slate-200 fade-in-up">
-          <h3 class="font-bold text-brand-navy text-lg mb-2">よし、まず見てみよう</h3>
-          <p class="text-sm text-slate-500 mb-6">考えるを、ひとりにしない。そんな空気感を体験できます</p>
+          <h3 class="font-bold text-brand-navy text-lg mb-2">まずは一言、送ってみる</h3>
+          <p class="text-sm text-slate-500 mb-6">あなたの「困った」が、誰かの助けになるかもしれません。</p>
           <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="https://www.smileplusctg.com/" target="_blank" rel="noopener" class="bg-brand-navy hover:bg-slate-800 text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-brand-navy/20 transition-all transform hover:-translate-y-1">
-              公式サイトを開く ↗
-            </a>
-            <a href="#why" class="text-slate-500 hover:text-brand-navy text-sm font-medium underline underline-offset-4">
-              上に戻って確認
+            <a href="#cocreate" class="bg-brand-navy hover:bg-slate-800 text-white font-bold py-3 px-8 rounded-full shadow-lg shadow-brand-navy/20 transition-all transform hover:-translate-y-1">
+              ヒント入力欄へ戻る <i data-lucide="arrow-up" class="w-4 h-4 inline ml-1"></i>
             </a>
           </div>
         </div>
@@ -582,11 +634,15 @@
             <p class="text-sm text-slate-500 leading-relaxed mb-4">
               専門用語を使わず、想いと強みを整理するあなたのためのAIパートナー。
             </p>
+            <p class="text-xs text-slate-400 bg-white inline-block px-3 py-2 rounded-lg border border-slate-100">
+              このページの目的は「公式サイトへの入口を、迷わず用意する」ことです。
+            </p>
           </div>
           
           <div class="flex flex-col md:flex-row md:justify-end gap-4 md:gap-8 items-start md:items-start">
             <div class="flex flex-col gap-3">
-              <a href="#how" class="text-sm text-slate-500 hover:text-brand-navy transition-colors">使い方</a>
+              <a href="#cases" class="text-sm text-slate-500 hover:text-brand-navy transition-colors">開発事例</a>
+              <a href="#cocreate" class="text-sm text-slate-500 hover:text-brand-navy transition-colors">一緒に作る</a>
             </div>
             <a href="https://www.smileplusctg.com/" target="_blank" rel="noopener" class="text-sm font-bold text-brand-cyan hover:text-cyan-600 transition-colors flex items-center gap-1">
               公式サイトへ <i data-lucide="external-link" class="w-3 h-3"></i>
@@ -611,6 +667,53 @@
           公式サイトを開く ↗
         </a>
       </div>
+    </div>
+
+    <!-- Modal for Send Options (Added) -->
+    <div id="send-modal" class="modal">
+        <div class="bg-white p-6 md:p-8 rounded-3xl max-w-md w-full mx-4 shadow-2xl relative fade-in-up">
+            <button onclick="closeSendModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-2">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <h3 class="text-xl font-bold mb-2 text-center text-brand-navy">送信方法を選んでください</h3>
+            <p class="text-xs text-center text-slate-500 mb-6">作成したヒントをどう送りますか？</p>
+            
+            <div class="space-y-3">
+                <!-- Option 1: Default Mailer -->
+                <button onclick="sendMail()" class="w-full flex items-center p-4 border-2 border-slate-100 hover:border-brand-cyan/50 hover:bg-brand-light/50 rounded-2xl transition-all group text-left">
+                    <div class="w-10 h-10 bg-brand-light text-brand-cyan rounded-full flex items-center justify-center flex-shrink-0 mr-4 group-hover:bg-brand-cyan group-hover:text-white transition-colors">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold text-brand-navy text-sm">メールソフトで送る</p>
+                        <p class="text-[10px] text-slate-500">Outlook, Macメールなど設定済みの方</p>
+                    </div>
+                </button>
+
+                <!-- Option 2: Gmail -->
+                <button onclick="sendGmail()" class="w-full flex items-center p-4 border-2 border-slate-100 hover:border-red-400 hover:bg-red-50 rounded-2xl transition-all group text-left">
+                    <div class="w-10 h-10 bg-red-100 text-red-500 rounded-full flex items-center justify-center flex-shrink-0 mr-4 group-hover:bg-red-500 group-hover:text-white transition-colors">
+                        <i data-lucide="mail-plus" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <p class="font-bold text-slate-800 text-sm">Gmailで送る</p>
+                        <p class="text-[10px] text-slate-500">ブラウザでGmailをお使いの方</p>
+                    </div>
+                </button>
+
+                <!-- Option 3: Copy Text -->
+                <div class="border-t border-slate-100 mt-4 pt-4">
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                        <p class="text-[10px] text-slate-500 mb-2">または本文をコピーして、使い慣れたツールで送ることもできます。</p>
+                        <textarea id="hidden-copy-text" class="hidden"></textarea> <!-- Hidden textarea for copying -->
+                        <button onclick="copyText()" id="copy-btn" class="w-full bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-2.5 rounded-lg text-xs transition-colors flex items-center justify-center gap-2">
+                            <i data-lucide="copy" class="w-3.5 h-3.5"></i> 本文をコピーする
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
   </main>
@@ -670,8 +773,103 @@
       observer.observe(el);
     });
 
-    // Floating Bar Scroll Handling (Optional: Hide on Footer)
-    // シンプルにするため、常に表示としていますが必要なら追加可能
+    // --- Co-creation Modal Logic ---
+    const sendModal = document.getElementById('send-modal');
+    const hintInput = document.getElementById('hint-input');
+    const hintCategory = document.getElementById('hint-category'); // Added Category
+    const hiddenCopyText = document.getElementById('hidden-copy-text');
+    const copyBtn = document.getElementById('copy-btn');
+    
+    // Email Config
+    const emailTo = "spc@smileplusctg.com";
+    const emailSubject = "【共創ヒント】Smile Plusアプリ開発へのご意見";
+
+    function getBody() {
+        const text = hintInput.value.trim();
+        const category = hintCategory.value || "未選択";
+        
+        if (!text) return "";
+        return `Smile Plus アプリ開発へのヒント\n\n■カテゴリ：\n${category}\n\n■ご意見・お困りごと：\n${text}\n\n--------------------------------------------------\n※このメールを送信してください。`;
+    }
+
+    function openSendModal() {
+        if (!hintInput.value.trim()) {
+            alert("ヒントを入力してください😊");
+            return;
+        }
+        sendModal.classList.add('show');
+        hiddenCopyText.value = getBody();
+        // Re-init icons in modal if needed (usually handled by global init, but good for dynamic content)
+        lucide.createIcons();
+    }
+
+    function closeSendModal() {
+        sendModal.classList.remove('show');
+    }
+
+    function sendMail() {
+        const body = getBody();
+        const mailto = `mailto:${emailTo}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailto;
+    }
+
+    function sendGmail() {
+        const body = getBody();
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${emailTo}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(body)}`;
+        window.open(gmailUrl, '_blank');
+    }
+
+    function copyText() {
+        const text = hiddenCopyText.value;
+        
+        // Use modern API if available
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+             navigator.clipboard.writeText(text).then(() => {
+                 showCopySuccess();
+             }).catch(err => {
+                 console.error('Clipboard API failed', err);
+                 fallbackCopyText();
+             });
+        } else {
+            fallbackCopyText();
+        }
+    }
+
+    function fallbackCopyText() {
+        hiddenCopyText.classList.remove('hidden'); // Temporarily show
+        hiddenCopyText.select();
+        hiddenCopyText.setSelectionRange(0, 99999); // For mobile
+        try {
+            document.execCommand('copy');
+            showCopySuccess();
+        } catch (err) {
+            alert('コピーに失敗しました。手動でコピーしてください。');
+        }
+        hiddenCopyText.classList.add('hidden'); // Hide again
+    }
+
+    function showCopySuccess() {
+        const originalText = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<i data-lucide="check" class="w-3.5 h-3.5"></i> コピーしました！';
+        copyBtn.classList.remove('bg-slate-200', 'text-slate-700');
+        copyBtn.classList.add('bg-green-100', 'text-green-700');
+        lucide.createIcons();
+        
+        setTimeout(() => {
+            copyBtn.innerHTML = originalText;
+            copyBtn.classList.add('bg-slate-200', 'text-slate-700');
+            copyBtn.classList.remove('bg-green-100', 'text-green-700');
+            lucide.createIcons();
+        }, 2000);
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        if (event.target == sendModal) {
+            closeSendModal();
+        }
+    }
+
   </script>
 </body>
 </html>
