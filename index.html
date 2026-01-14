@@ -212,7 +212,6 @@
                 まず公式サイトへ（入口） <i data-lucide="arrow-up-right" class="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
               </span>
             </a>
-            <!-- FIXED: Link to #cases -->
             <a href="#cases" class="flex items-center justify-center gap-2 bg-slate-50 text-brand-navy font-bold py-3.5 px-8 rounded-xl border border-slate-200 hover:bg-brand-cyan/10 hover:border-brand-cyan/30 transition-all">
               開発事例を見る <i data-lucide="arrow-down" class="w-4 h-4"></i>
             </a>
@@ -226,9 +225,9 @@
           <div class="bg-white/90 backdrop-blur border border-white/50 rounded-2xl p-5 shadow-card hover:shadow-lg transition-all hover:-translate-y-1 h-full flex flex-col">
             <div class="flex items-center gap-2 text-brand-navy font-bold mb-3">
               <div class="p-1.5 bg-brand-light rounded-md text-brand-cyan shrink-0"><i data-lucide="user-check" class="w-4 h-4"></i></div>
-              こんな方に向いています
+              <span class="text-sm">こんな方に向いています</span>
             </div>
-            <p class="text-sm text-slate-500 leading-relaxed flex-grow">
+            <p class="text-xs text-slate-500 leading-loose flex-grow">
               ひとりで考え続けて、<br>
               気づいたら止まってしまっている方へ。<br>
               答えを出す前に、<br>
@@ -240,9 +239,9 @@
           <div class="bg-white/90 backdrop-blur border border-white/50 rounded-2xl p-5 shadow-card hover:shadow-lg transition-all hover:-translate-y-1 h-full flex flex-col">
             <div class="flex items-center gap-2 text-brand-navy font-bold mb-3">
               <div class="p-1.5 bg-brand-light rounded-md text-brand-cyan shrink-0"><i data-lucide="map" class="w-4 h-4"></i></div>
-              このLPで分かること
+              <span class="text-sm">このLPで分かること</span>
             </div>
-            <p class="text-sm text-slate-500 leading-relaxed flex-grow">
+            <p class="text-xs text-slate-500 leading-loose flex-grow">
               なぜ止まってしまうのか。<br>
               どうすれば一歩動けるのか。<br>
               何から始めればいいのか。<br>
@@ -254,9 +253,9 @@
           <div class="bg-brand-navy/5 border border-brand-navy/10 rounded-2xl p-5 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 h-full flex flex-col">
             <div class="flex items-center gap-2 text-brand-navy font-bold mb-3">
                <div class="p-1.5 bg-white rounded-md text-brand-navy shrink-0"><i data-lucide="heart-handshake" class="w-4 h-4"></i></div>
-               小さな約束
+               <span class="text-sm">小さな約束</span>
             </div>
-            <p class="text-xs text-slate-600 leading-relaxed flex-grow">
+            <p class="text-xs text-slate-600 leading-loose flex-grow">
               難しい言葉は使いません。<br>
               無理に答えを出させません。<br>
               話しながら、<br>
@@ -372,7 +371,7 @@
       </div>
     </section>
 
-    <!-- CO-CREATE START -->
+    <!-- CO-CREATE START (Moved Here & Background Adjusted) -->
     <section id="cocreate" class="py-16 md:py-24 relative fade-in-up bg-gradient-to-b from-white to-slate-50/50">
       <div class="max-w-4xl mx-auto px-4 md:px-6">
         
@@ -410,6 +409,7 @@
              <!-- Background Decor -->
              <div class="absolute right-0 top-0 w-48 h-48 bg-brand-cyan/20 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
              
+             <!-- MODIFIED: Updated Title -->
              <h3 class="text-xl font-bold mb-6 relative z-10 text-center flex items-center justify-center gap-2">
                <i data-lucide="sprout" class="w-5 h-5"></i> 現場の「困った」を教えてください
              </h3>
@@ -498,7 +498,7 @@
               <i data-lucide="sun" class="w-6 h-6"></i>
             </div>
             <!-- Title aligned to 2 lines like others -->
-            <h3 class="font-bold text-brand-navy text-lg mb-1">習慣化アプリ<br>Mirai365</h3>
+            <h3 class="font-bold text-brand-navy text-base mb-1">習慣化アプリ<br>Mirai365</h3>
             <p class="text-xs font-bold text-brand-cyan mb-3">未来の自分を予約する思考法ツール</p>
             
             <p class="text-xs text-slate-500 mb-3 text-left leading-relaxed">
@@ -521,7 +521,7 @@
             <div class="w-12 h-12 mx-auto bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center mb-4 relative z-10">
               <i data-lucide="scale" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-1">弁護士のための<br>AIひな形ツール</h3>
+            <h3 class="font-bold text-brand-navy text-base mb-1">弁護士のための<br>AIひな形ツール</h3>
             <p class="text-xs font-bold text-brand-cyan mb-3">実務特化型プロンプト集＆支援</p>
             
             <p class="text-xs text-slate-500 mb-3 text-left leading-relaxed">
@@ -545,7 +545,7 @@
             <div class="w-12 h-12 mx-auto bg-green-100 text-green-600 rounded-xl flex items-center justify-center mb-4 relative z-10">
               <i data-lucide="layout" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-1">Web制作<br>ヒアリングシート</h3>
+            <h3 class="font-bold text-brand-navy text-base mb-1">Web制作<br>ヒアリングシート</h3>
             <p class="text-xs font-bold text-brand-cyan mb-3">要件定義をスムーズにするアプリ</p>
             
             <p class="text-xs text-slate-500 mb-3 text-left leading-relaxed">
@@ -569,7 +569,7 @@
             <div class="w-12 h-12 mx-auto bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center mb-4 relative z-10">
               <i data-lucide="pen-tool" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-1">SNSサポート<br>投稿ナビ Pro</h3>
+            <h3 class="font-bold text-brand-navy text-base mb-1">SNSサポート<br>投稿ナビ Pro</h3>
             <p class="text-xs font-bold text-brand-cyan mb-3">めんどうを、考えなくていい形に</p>
             <p class="text-xs text-slate-500 mb-3 text-left leading-relaxed">
               画面に沿って選ぶだけで、そのまま使える投稿文が完成する実務特化型ツールです。
@@ -590,7 +590,7 @@
             <div class="w-12 h-12 mx-auto bg-teal-100 text-teal-600 rounded-xl flex items-center justify-center mb-4 relative z-10">
               <i data-lucide="heart" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-1">薬局特化型<br>やさしいSNSナビ</h3>
+            <h3 class="font-bold text-brand-navy text-base mb-1">薬局特化型<br>やさしいSNSナビ</h3>
             <p class="text-xs font-bold text-brand-cyan mb-3">地域とつながる無理のない発信</p>
             <p class="text-xs text-slate-500 mb-3 text-left leading-relaxed">
               専門性を保ちながら“伝わる言葉”に整える、薬局のためのSNS支援ツールです。
@@ -611,7 +611,7 @@
             <div class="w-12 h-12 mx-auto bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mb-4 relative z-10">
               <i data-lucide="monitor" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-1">超シンプル設計<br>秒速HP工房</h3>
+            <h3 class="font-bold text-brand-navy text-base mb-1">超シンプル設計<br>秒速HP工房</h3>
             <p class="text-xs font-bold text-brand-cyan mb-3">考える前に、形ができる</p>
             <p class="text-xs text-slate-500 mb-3 text-left leading-relaxed">
               業種を選ぶだけで伝えるべき構成が整う、超シンプル設計のHP作成ツールです。
@@ -632,7 +632,7 @@
             <div class="w-12 h-12 mx-auto bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-4 relative z-10">
               <i data-lucide="calculator" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-1">税理士のための<br>AIひな形</h3>
+            <h3 class="font-bold text-brand-navy text-base mb-1">税理士のための<br>AIひな形</h3>
             <p class="text-xs font-bold text-brand-cyan mb-3">数字の前に、考えを整える</p>
             <p class="text-xs text-slate-500 mb-3 text-left leading-relaxed">
               結論を出すためではなく、思考を整えるための実務補助ツールです。
@@ -653,7 +653,7 @@
             <div class="w-12 h-12 mx-auto bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center mb-4 relative z-10">
               <i data-lucide="briefcase" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-1">社労士のための<br>AIひな形</h3>
+            <h3 class="font-bold text-brand-navy text-base mb-1">社労士のための<br>AIひな形</h3>
             <p class="text-xs font-bold text-brand-cyan mb-3">制度を、伝わる言葉に</p>
             <p class="text-xs text-slate-500 mb-3 text-left leading-relaxed">
               専門知識を相手に伝わる言葉へ整える、実務特化型サポートツールです。
@@ -674,7 +674,7 @@
             <div class="w-12 h-12 mx-auto bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mb-4 relative z-10">
               <i data-lucide="flag" class="w-6 h-6"></i>
             </div>
-            <h3 class="font-bold text-brand-navy text-lg mb-1">思考整理アプリ<br>整えるゴルフ。</h3>
+            <h3 class="font-bold text-brand-navy text-base mb-1">思考整理アプリ<br>整えるゴルフ。</h3>
             <p class="text-xs font-bold text-brand-cyan mb-3">ゴルフとの向き合い方をリセット</p>
             <p class="text-xs text-slate-500 mb-3 text-left leading-relaxed">
               技術論ではなく、ゴルフとの向き合い方をリセットするための思考整理アプリです。
@@ -779,7 +779,6 @@
           </details>
         </div>
 
-        <!-- Minimum Version CTA (Updated Text) -->
         <div class="mt-12 bg-white rounded-2xl p-8 text-center border-2 border-dashed border-slate-200 fade-in-up">
           <h3 class="font-bold text-brand-navy text-lg mb-2">まだ途中の形です。<br class="md:hidden">だからこそ、<br>現場の声が参考になります。</h3>
           <p class="text-sm text-slate-500 mb-6">よければ、感じたことを一言だけ聞かせてください。</p>
